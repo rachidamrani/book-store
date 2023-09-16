@@ -1,0 +1,17 @@
+<h1 class="section-title my-1">Favoris :</h1>
+<div class="h-[270px] overflow-y-auto">
+  <p
+    *ngIf="favoriteBooks.length === 0"
+    class="font-semibold text-white text-center"
+  >
+    Vous n'avez ajouté aucun livre à vos favoris pour le moment.
+  </p>
+  <div class="book-item" *ngFor="let book of favoriteBooks">
+    <span>{{ book.title }}</span>
+    <div class="controls">
+      <button class="button" (click)="removeFromFavorites(book.id)">
+        <i class="fa-regular fa-heart text-green-600"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<form (ngSubmit)="onAddBook(bookForm)" #bookForm="ngForm" class="w-full p-1">
+  <h1 class="section-title">Ajouter un nouveau livre :</h1>
+
+  <div class="form-group">
+    <input
+      type="text"
+      #title="ngModel"
+      name="title"
+      id="title"
+      class="input"
+      placeholder="Titre"
+      ngModel
+      required
+    />
+    <p *ngIf="title.touched && title.invalid" class="input-error">
+      Veuillez entrer le titre du livre
+    </p>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      name="author"
+      #author="ngModel"
+      class="input"
+      placeholder="Auteur"
+      required
+      ngModel
+    />
+    <p *ngIf="author.touched && author.invalid" class="input-error">
+      Veuillez entrer le nom d'auteur
+    </p>
+  </div>
+  <div class="form-group">
+    <input
+      type="number"
+      min="1"
+      name="pagesNumber"
+      #pagesNumber="ngModel"
+      class="input"
+      placeholder="Nombre de pages"
+      required
+      ngModel
+    />
+    <p *ngIf="pagesNumber.touched && pagesNumber.invalid" class="input-error">
+      Veuillez entrer le nombre de pages du livre
+    </p>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      name="editionDate"
+      #editionDate="ngModel"
+      class="input"
+      placeholder="Date d'édition"
+      required
+      ngModel
+    />
+    <p *ngIf="editionDate.touched && editionDate.invalid" class="input-error">
+      Veuillez entrer la date d'édition du livre
+    </p>
+  </div>
+
+  <div class="form-group">
+    <input
+      type="number"
+      name="price"
+      min="0"
+      #price="ngModel"
+      class="input"
+      placeholder="Prix (&euro;)"
+      required
+      ngModel
+    />
+    <p *ngIf="price.touched && price.invalid" class="input-error">
+      Veuillez entrer le prix du livre
+    </p>
+  </div>
+
+  <button
+    type="submit"
+    class="btn bg-blue-500 text-white hover:opacity-90 my-3"
+    [disabled]="bookForm.touched && bookForm.invalid"
+  >
+    Ajouter
+  </button>
+</form>

@@ -1,0 +1,26 @@
+<h1 class="section-title my-1">Livres ajoutés :</h1>
+<div class="h-[270px] overflow-y-auto">
+  <p *ngIf="books.length === 0" class="font-semibold text-white text-center">
+    Vous n'avez ajouté aucun livre pour le moment.
+  </p>
+
+  <div class="book-item" *ngFor="let book of books">
+    <span>{{ book.title }}</span>
+    <div class="controls">
+      <a
+        [routerLink]="['book-details', book.id]"
+        class="bg-blue-600 mr-1 px-2 rounded-sm text-white hover:bg-blue-400"
+        >Détails</a
+      >
+      <button class="button mr-2" (click)="onDeleteBook(book.id)">
+        <i class="fa-solid fa-trash text-red-700"></i>
+      </button>
+      <button class="button">
+        <i
+          class="fa-solid fa-heart text-green-700"
+          (click)="addToFavorite(book.id)"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>
