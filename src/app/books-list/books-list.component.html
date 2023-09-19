@@ -1,26 +1,56 @@
-<h1 class="section-title my-1">Livres ajoutés :</h1>
-<div class="h-[270px] overflow-y-auto">
-  <p *ngIf="books.length === 0" class="font-semibold text-white text-center">
+<h1 class="fw-bold fs-4">Livre ajoutés :</h1>
+<hr />
+<!-- <div>
+  <p *ngIf="books.length === 0">
     Vous n'avez ajouté aucun livre pour le moment.
   </p>
 
-  <div class="book-item" *ngFor="let book of books">
+  <div *ngFor="let book of books">
     <span>{{ book.title }}</span>
-    <div class="controls">
-      <a
-        [routerLink]="['book-details', book.id]"
-        class="bg-blue-600 mr-1 px-2 rounded-sm text-white hover:bg-blue-400"
-        >Détails</a
-      >
-      <button class="button mr-2" (click)="onDeleteBook(book.id)">
-        <i class="fa-solid fa-trash text-red-700"></i>
+    <div>
+      <a [routerLink]="['book-details', book.id]">Détails</a>
+      <button (click)="onDeleteBook(book.id)">
+        <i class="fa-solid fa-trash"></i>
       </button>
-      <button class="button">
-        <i
-          class="fa-solid fa-heart text-green-700"
-          (click)="addToFavorite(book.id)"
-        ></i>
+      <button>
+        <i class="fa-solid fa-heart" (click)="addToFavorite(book.id)"></i>
       </button>
     </div>
   </div>
+</div> -->
+
+<div *ngIf="books.length === 0" class="alert alert-info">
+  <strong>Vous n'avez ajouté aucun livre.</strong>
 </div>
+
+<ul class="list-group">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let book of books"
+  >
+    {{ book.title }}
+    <div class="btn-group" role="group">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        (click)="getBookDetails(book.id)"
+      >
+        Détails
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-sm"
+        (click)="onDeleteBook(book.id)"
+      >
+        Supprimer
+      </button>
+      <button
+        type="button"
+        class="btn btn-success btn-sm"
+        (click)="onAddToFavorite(book.id)"
+      >
+        <i class="fa-solid fa-heart"></i>
+      </button>
+    </div>
+  </li>
+</ul>

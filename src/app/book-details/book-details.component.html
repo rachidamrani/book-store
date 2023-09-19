@@ -1,26 +1,35 @@
-<div
-  class="w-[600px] h-[250px] mx-auto mt-[200px] mb-10 bg-white shadow-2xl shadow-blue-950 rounded-md px-10"
->
-  <h1 class="text-6xl font-bold text-center mb-3">
-    <span class="text-lg">{{ book.title }}</span>
+<!-- <div>
+  <h1>
+    <span>{{ book.title }}</span>
   </h1>
   <hr />
-  <div class="informations mt-6">
+  <div>
     <h2>
-      <span class="text-xl font-bold">Auteur : </span>
-      <span class="text-lg">{{ book.author }}</span>
+      <span>Auteur : </span>
+      <span>{{ book.author }}</span>
     </h2>
     <h2>
-      <span class="text-xl font-bold">Date d'édition : </span>
-      <span class="text-lg">{{ book.title }}</span>
+      <span>Date d'édition : </span>
+      <span>{{ book.title }}</span>
     </h2>
     <h2>
-      <span class="text-xl font-bold">Prix : </span>
-      <span class="text-lg">{{ book.price }}</span> &euro;
+      <span>Prix : </span>
+      <span>{{ book.price }}</span> &euro;
     </h2>
     <h2>
-      <span class="text-xl font-bold">Tu as apprécié ce livre ? : </span>
-      <span class="text-lg">{{ bookIsFavorite ? "Oui" : "Non" }}</span>
+      <span>Tu as apprécié ce livre ? : </span>
+      <span>{{ bookIsFavorite ? "Oui" : "Non" }}</span>
     </h2>
+  </div>
+</div> -->
+
+<div class="d-flex justify-content-center align-items-center p-5 w-75 mx-auto">
+  <div class="card p-5">
+    <h1>Titre : {{ book.title }}</h1>
+    <hr />
+    <h2>Auteur : {{ book.author }}</h2>
+    <h2>Date d'édition : {{ book.editionDate }}</h2>
+    <h2>Prix : {{ book.price }}</h2>
+    <h2>Tu as aimé ce livre : {{ bookIsFavorite ? "Oui" : "Non" }}</h2>
   </div>
 </div>

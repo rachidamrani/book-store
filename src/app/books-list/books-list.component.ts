@@ -29,7 +29,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
     this.bookService.deleteBook(bookId);
   }
 
-  addToFavorite(bookId: string) {
+  onAddToFavorite(bookId: string) {
     this.bookService.addFav(bookId);
   }
 
